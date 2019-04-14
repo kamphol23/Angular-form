@@ -1,0 +1,14 @@
+
+
+.langeList{
+  min-height: 50px;
+  border-bottom: solid 1px;
+
+  margin-bottom: 20px;
+}
+.container{
+
+display: inline;
+  background-color: white;
+  opacity: 0.8;
+}

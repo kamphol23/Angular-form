@@ -1,0 +1,57 @@
+html {
+  min-height: 100%;
+  background-image: url("https://images.fineartamerica.com/images-medium-large/cades-cove-cemetery-katherine-tucker.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+.outWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.valid {
+    border: 2px solid green;
+}
+.invalid{
+    border: 2px solid red;
+}
+select{
+  width: 100px;
+}
+
+input{
+  padding: 10px;
+  width: 150px;
+  font-size: 15px;
+  margin-right: 20px;
+  margin-bottom: 25px;
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+button{
+  margin-left: 20px;
+  padding: 10px;
+  background-color: 	dodgerblue;
+  font-size: 15px;
+  border-radius: 5px 5px;
+}
+
+button:hover{
+  background-color: 	deepskyblue;
+}
+h3{
+  color: red;
+}
+
+textarea{
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,76 @@
+
+<form [formGroup]="educationGroup">
+  <div >
+    <label>Latest education and the year of graduation</label><br/>
+    <input type="text" placeholder="School...." formControlName="latestSchoolControl"
+    [class.valid]="latestSchoolControl.valid"
+    [class.invalid]="latestSchoolControl.invalid && latestSchoolControl.touched"/>
+
+    <span *ngIf="latestSchoolControl.valid">✅</span>
+    <span *ngIf="latestSchoolControl.invalid && latestSchoolControl.touched">❌</span>
+
+    <input type="text" placeholder="Year...." formControlName="graduationYearControl"
+    [class.valid]="graduationYearControl.valid"
+    [class.invalid]="graduationYearControl.invalid && graduationYearControl.touched"/>
+
+    <span *ngIf="graduationYearControl.valid">✅</span>
+    <span *ngIf="graduationYearControl.invalid && graduationYearControl.touched">❌</span>
+
+    <!-- School error message start here----------- -->
+    <h3 *ngIf="latestSchoolControl.errors?.required && latestSchoolControl.touched">
+      Pleace enter a school!
+    </h3>
+      <h3 *ngIf="latestSchoolControl.errors?.minlength && latestSchoolControl.touched">
+        Must be longer then 5 character
+      </h3>
+      <!-- School error massage ends here---- -->
+
+        <!-- School year error massage start here ------- -->
+          <h3 *ngIf="graduationYearControl.errors?.required && graduationYearControl.touched">
+            Pleace enter a year
+          </h3>
+              <h3 *ngIf="graduationYearControl.errors?.min && graduationYearControl.touched">
+                Can only enter year betewn 1930-2019
+              </h3>
+                <h3 *ngIf="graduationYearControl.errors?.maxlength && graduationYearControl.touched">
+                  Can be longer then 4 character
+                </h3>
+                <h3 *ngIf="graduationYearControl.errors?.pattern">
+                Numbers only
+                </h3>
+          <!-- School year error massage ends here   ---------     -->
+  </div>
+
+</form>
+
+
+
+<form [formGroup]="formerJobGroup">
+  <div class="userEmployment">
+    <label>Former job and title (Not obligatory)</label>
+    <br>
+
+    <input type="text" placeholder="Company name...." [(ngModel)]= "formWorkName" formControlName="formCompany"
+    [class.valid]="formCompany.valid"/>
+
+
+    <input type="text" placeholder="Title...." [(ngModel)]= "formerTitle" formControlName="formerTitleControl"
+    [class.valid]="formerTitleControl.valid"/>
+
+    <input type="text" placeholder="How long...." [(ngModel)]= "formerLong" formControlName="formerLongControl"
+    [class.valid]="formerLongControl.valid"/>
+
+    <button [disabled]="formerJobGroup.invalid"  (click)="addFormerWork()">Lägg till anställning</button>
+<br>
+
+
+  </div>
+  </form>
+
+
+  <div class="formerWork" *ngFor="let worktBefore of formerWork">
+    <span> Former company: <strong> {{ worktBefore.name }} </strong> </span>
+    <span> Title:  <strong> {{ worktBefore.title }} </strong> </span>
+    <span> How long: <strong> {{ worktBefore.howLong }} </strong> </span>
+    <button type="button" (click)="deleteWork(worktBefore.name)"> Remove</button>
+  </div>

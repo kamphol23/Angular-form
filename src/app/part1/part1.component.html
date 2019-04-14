@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="mainwrapper">
+    <form [formGroup]="nameGroup">
+
+
+      <label>Full name</label>
+      <br>
+    <input class="firstName"type="text" placeholder="First name...." formControlName="firstNameControl"
+    [class.valid]="firstNameControl.valid"
+    [class.invalid]="firstNameControl.invalid && firstNameControl.touched"/>
+      <span *ngIf="firstNameControl.valid">✅</span>
+      <span *ngIf="firstNameControl.invalid && firstNameControl.touched">❌</span>
+    <input type="text" placeholder="Last name...." formControlName="lastNameControl"
+    [class.valid]="lastNameControl.valid"
+    [class.invalid]="lastNameControl.invalid && lastNameControl.touched"/>
+      <span *ngIf="lastNameControl.valid">✅</span>
+      <span *ngIf="lastNameControl.invalid && lastNameControl.touched">❌</span>
+        <h3 *ngIf="(lastNameControl.errors?.required) && (lastNameControl.touched)">
+        Pleace enter your last name</h3>
+        <h3 *ngIf="(firstNameControl.errors?.required) && (firstNameControl.touched)">
+        Pleace enter your first name</h3>
+
+<br>
+
+        <label class="city">Stad</label>
+        <br>
+        <input type="text" placeholder="City...." formControlName="cityControl"
+        [class.valid]="cityControl.valid"
+        [class.invalid]="cityControl.invalid && cityControl.touched"/>
+          <span *ngIf="cityControl.valid">✅</span>
+            <span *ngIf="cityControl.invalid && cityControl.touched">❌</span>
+              <h3 *ngIf="cityControl.errors?.required && cityControl.touched">
+                Pleace enter a city name
+              </h3>
+
+
+    </form>
+
+<br>
+    <div class="aboutU">
+      <label>Short about you</label>
+      <br>
+      <textarea placeholder="Max 200 character & min 20"type="text" rows="10" cols="50" [formControl]="aboutControl"
+      [class.valid]="aboutControl.valid"
+      [class.invalid]="aboutControl.invalid && aboutControl.touched"></textarea>
+
+        <h3 *ngIf="(aboutControl.errors?.required || aboutControl.errors?.minlength) && aboutControl.touched">
+        Min 20 character</h3>
+        <h3 *ngIf="aboutControl.errors?.maxlength">
+        Max 200 character</h3>
+    </div>
+
+
+
+
+
+    <div>
+      <label>your competence</label><br/>
+      <select class="option" [formControl]="languageCompetenceControl" >
+
+        <option *ngFor="let language of languages" [value]="language">{{language}}</option>
+      </select>
+
+      <button (click)="addLanguageCompetence()">Select</button>
+      <div class="errorMessage" id="thirdErrorBox">
+
+
+      </div>
+        <main class="langeList">
+        <p *ngFor="let language of selectedLanguage">{{language}}</p>
+        </main>
+
+
+    </div>
+
+  </div>
+  <div class="secondContainer">
+
+
+
+
+    <app-part2 ></app-part2>
+  </div>
+
+</div>

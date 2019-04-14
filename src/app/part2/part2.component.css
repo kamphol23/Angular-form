@@ -1,0 +1,11 @@
+.formerWork > span{
+  margin: 40px;
+  margin-left: 0px;
+  font-weight:lighter;
+}
+
+.formerWork{
+  border-bottom: solid 2px;
+  margin: 20px;
+  margin-left: 0
+}
