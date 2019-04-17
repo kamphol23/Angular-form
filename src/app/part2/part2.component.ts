@@ -35,6 +35,8 @@ export class part2Component implements OnInit {
 
 
   constructor() {
+
+
     this.formerWork =[
       {name:'Exampel', title:'Exampel', howLong:'Month/year'},
     ];
